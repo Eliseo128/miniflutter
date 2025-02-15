@@ -5,40 +5,43 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Ejemplo de Container"),
-        ),
-        body: Center(
-          child: Container(
-            width: 200, // Ancho del contenedor
-            height: 100, // Alto del contenedor
-            decoration: BoxDecoration(
-              color: Colors.blue, // Color de fondo
-              borderRadius: BorderRadius.circular(15), // Bordes redondeados
-              border: Border.all(color: Colors.white, width: 3), // Borde
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 10,
-                  spreadRadius: 2,
-                  offset: Offset(4, 4), // Sombra
-                ),
-              ],
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MiPagina(),
+    );
+  }
+}
+
+class MiPagina extends StatelessWidget {
+  const MiPagina({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Mi Pagina'),
+        backgroundColor: Colors.red,
+        centerTitle: true,
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Hola Mundo',
             ),
-            padding: const EdgeInsets.all(16), // Espacio interno
-            alignment: Alignment.center, // Alineación del contenido
-            child: const Text(
-              "Hola, Nava!",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+                        Text(
+              'Hola marte',
             ),
-          ),
+          ],
         ),
       ),
     );
